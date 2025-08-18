@@ -1,0 +1,79 @@
+# golangci-lint configuration
+# https://golangci-lint.run/usage/configuration/
+
+run:
+  timeout: 5m
+  modules-download-mode: readonly
+
+linters-settings:
+  # Error check settings
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+
+  # Gofmt settings
+  gofmt:
+    simplify: true
+
+  # Gocyclo settings
+  gocyclo:
+    min-complexity: 15
+
+  # Goconst settings
+  goconst:
+    min-len: 2
+    min-occurrences: 3
+
+  # Govet settings
+  govet:
+    check-shadowing: true
+    enable-all: true
+    disable:
+      - fieldalignment # can be too noisy
+
+  # Staticcheck settings
+  staticcheck:
+    checks: ["all"]
+
+linters:
+  enable:
+    # Default linters
+    - errcheck      # Check for unchecked errors
+    - gosimple      # Simplify code
+    - govet         # Vet examines Go source code
+    - ineffassign   # Detect ineffectual assignments
+    - staticcheck   # Advanced static analysis
+    - typecheck     # Type checking
+    - unused        # Check for unused code (replaces deadcode, varcheck, structcheck)
+
+    # Additional useful linters
+    - gofmt         # Check if code is formatted
+    - goimports     # Check if imports are formatted
+    - goconst       # Find repeated strings that could be constants
+    - gocyclo       # Check cyclomatic complexity
+    - misspell      # Find commonly misspelled words
+    - unconvert     # Remove unnecessary type conversions
+    - unparam       # Find unused function parameters
+    - gosec         # Security issues
+
+issues:
+  # Exclude common false positives
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
+        - gosec
+    - text: "Error return value of .((os\.)?std(out|err)\..*|.*Close|.*Flush|os\.Remove(All)?|.*printf?|os\.(Un)?Setenv). is not checked"
+      linters:
+        - errcheck
+
+  # Maximum issues count per one linter
+  max-issues-per-linter: 50
+  
+  # Maximum count of issues with the same text
+  max-same-issues: 3
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
