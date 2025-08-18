@@ -10,15 +10,15 @@ func createLinkedList(nums []int) *ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
-	
+
 	head := &ListNode{Val: nums[0]}
 	current := head
-	
+
 	for i := 1; i < len(nums); i++ {
 		current.Next = &ListNode{Val: nums[i]}
 		current = current.Next
 	}
-	
+
 	return head
 }
 
@@ -26,12 +26,12 @@ func createLinkedList(nums []int) *ListNode {
 func linkedListToSlice(head *ListNode) []int {
 	var result []int
 	current := head
-	
+
 	for current != nil {
 		result = append(result, current.Val)
 		current = current.Next
 	}
-	
+
 	return result
 }
 
@@ -90,10 +90,10 @@ func TestAddTwoNumbers(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			l1 := createLinkedList(tt.l1)
 			l2 := createLinkedList(tt.l2)
-			
+
 			result := addTwoNumbers(l1, l2)
 			resultSlice := linkedListToSlice(result)
-			
+
 			if !reflect.DeepEqual(resultSlice, tt.expected) {
 				t.Errorf("addTwoNumbers(%v, %v) = %v, expected %v", tt.l1, tt.l2, resultSlice, tt.expected)
 			}

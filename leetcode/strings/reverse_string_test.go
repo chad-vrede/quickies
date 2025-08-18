@@ -53,7 +53,7 @@ func TestReverseString(t *testing.T) {
 			// Make a copy since the function modifies in-place
 			sCopy := make([]byte, len(tt.s))
 			copy(sCopy, tt.s)
-			
+
 			reverseString(sCopy)
 			if !reflect.DeepEqual(sCopy, tt.expected) {
 				t.Errorf("reverseString(%v) = %v, expected %v", tt.s, sCopy, tt.expected)
@@ -71,7 +71,7 @@ func BenchmarkReverseString(b *testing.B) {
 		sCopy := make([]byte, len(s))
 		copy(sCopy, s)
 		b.StartTimer()
-		
+
 		reverseString(sCopy)
 	}
 }
