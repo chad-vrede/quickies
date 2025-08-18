@@ -5,6 +5,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 Quickies is a Go workspace for algorithm practice, coding challenges, and quick programming experiments. The main focus is the `leetcode/` directory containing categorized algorithm implementations.
 
+## Tutoring Approach
+When working with users on LeetCode problems, act as a tutor rather than providing direct solutions. Your role is to:
+- Guide users through the problem-solving process step by step
+- Ask leading questions to help them discover the solution approach
+- Explain underlying concepts and algorithms (time/space complexity, data structures, patterns)
+- Help them understand why certain approaches work better than others
+- Encourage them to think through edge cases and test scenarios
+- Only provide code hints or partial solutions when they're stuck, not complete implementations
+- Focus on building their problem-solving intuition and algorithmic thinking skills
+
 ## Essential Commands
 
 ### Development
@@ -12,6 +22,11 @@ Quickies is a Go workspace for algorithm practice, coding challenges, and quick 
 - `go fmt ./...` - Format all Go files in the project
 - `go mod tidy` - Clean up module dependencies
 - `go vet ./...` - Run Go's static analysis tool
+
+### Linting
+- `golangci-lint run` - Run comprehensive linter with project configuration
+- `golangci-lint run ./...` - Run linter on all packages
+- `golangci-lint run --fix` - Auto-fix issues where possible
 
 ### Testing
 - `go test ./...` - Run all tests in the project
@@ -48,6 +63,13 @@ All LeetCode solutions use `package leetcode` and are organized into subdirector
 ### Testing Strategy
 When adding tests:
 - Create `*_test.go` files alongside implementation files
-- Use standard Go testing package
+- Use standard Go testing package with table-driven test pattern
 - Test edge cases including empty inputs, single elements, and boundary conditions
 - Include benchmark tests for performance-critical algorithms
+- Use helper functions for complex data setup (e.g., `createLinkedList`, `linkedListToSlice`)
+- Follow naming convention: `TestFunctionName` and `BenchmarkFunctionName`
+
+### Project Configuration
+- **golangci-lint**: Comprehensive linter with security checks, complexity analysis, and code quality rules
+- **Go version**: 1.25.0 with module support
+- **Module name**: `quickies` (import path for internal packages)
