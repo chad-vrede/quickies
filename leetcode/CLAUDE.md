@@ -39,6 +39,13 @@ When working with users on LeetCode problems, act as a tutor rather than providi
 - `go build ./...` - Build all packages (check for compilation errors)
 - `go build <file.go>` - Build specific file
 
+### Pre-commit Hooks
+The repository has an active pre-commit hook that automatically runs:
+1. `go test ./...` - All tests must pass
+2. `golangci-lint run` - Linting must pass with no errors
+3. `go fmt ./...` - Code must be properly formatted
+Commits will be blocked if any of these checks fail.
+
 ## Code Architecture
 
 ### Package Structure
