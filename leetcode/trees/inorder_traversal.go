@@ -26,13 +26,6 @@ package leetcode
 // - The number of nodes in the tree is in the range [0, 100].
 // - -100 <= Node.val <= 100
 
-// TreeNode definition for binary tree problems
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func inorderTraversal(root *TreeNode) (traversalPath []int) {
 	/** Inorder means you visit nodes in this specific order:
 	  1. Left subtree first (all nodes to the left)
