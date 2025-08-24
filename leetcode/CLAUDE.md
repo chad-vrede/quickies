@@ -53,7 +53,8 @@ All LeetCode solutions use `package leetcode` and are organized into subdirector
 - **arrays/** - Array manipulation and optimization algorithms
 - **strings/** - String processing and text algorithms  
 - **linked-lists/** - Linked list operations (defines shared `ListNode` struct)
-- **hash-tables/** - Hash map/set-based lookup solutions
+- **hash-tables/** - Hash map/set-based lookup solutions and memoization
+- **trees/** - Binary tree algorithms (defines shared `TreeNode` struct and queue implementations)
 
 ### Function Naming Convention
 - Functions use camelCase and are unexported (lowercase first letter)
@@ -64,8 +65,10 @@ All LeetCode solutions use `package leetcode` and are organized into subdirector
 - Solutions prioritize optimal time complexity over readability when appropriate
 - Use Go's built-in `map[type]type` for hash table solutions
 - Linked list problems define `ListNode` struct with `Val int` and `Next *ListNode`
+- Tree problems use shared `TreeNode` struct and queue implementations in `trees/types.go`
 - Functions typically return the most direct solution type (indices, booleans, modified structures)
 - No external dependencies - pure Go standard library only
+- Generic queue interface and implementations available for complex data structure problems
 
 ### Testing Strategy
 When adding tests:
@@ -77,6 +80,6 @@ When adding tests:
 - Follow naming convention: `TestFunctionName` and `BenchmarkFunctionName`
 
 ### Project Configuration
-- **golangci-lint**: Comprehensive linter with security checks, complexity analysis, and code quality rules
+- **golangci-lint**: Comprehensive linter with security checks (`gosec`), complexity analysis (`gocyclo`), and code quality rules
 - **Go version**: 1.25.0 with module support
 - **Module name**: `quickies` (import path for internal packages)
