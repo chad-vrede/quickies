@@ -52,7 +52,10 @@ func deserializeHelper(tokens []string, index *int) *TreeNode {
 		return nil
 	}
 
-	val, _ := strconv.Atoi(tokens[*index])
+	val, err := strconv.Atoi(tokens[*index])
+	if err != nil {
+		return nil
+	}
 	*index++
 
 	node := &TreeNode{Val: val}

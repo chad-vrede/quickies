@@ -140,7 +140,7 @@ func BenchmarkTopKFrequent(b *testing.B) {
 }
 
 // Helper function to check if two slices contain the same elements (ignoring order)
-func containsSameElements(a, b []int) bool {
+func containsSameElements(a, b []int) bool { //nolint:unused
 	if len(a) != len(b) {
 		return false
 	}

@@ -24,11 +24,7 @@ func topKFrequent(nums []int, k int) []int {
 	buckets := make([][]int, len(nums)+1)
 
 	for _, num := range nums {
-		if _, ok := frequencies[num]; ok {
-			frequencies[num]++
-		} else {
-			frequencies[num] = 1
-		}
+		frequencies[num]++
 	}
 
 	for element, frequency := range frequencies {

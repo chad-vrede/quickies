@@ -18,8 +18,10 @@ When working with users on LeetCode problems, act as a tutor rather than providi
 ## Essential Commands
 
 ### Development
+**IMPORTANT**: All commands must be run from the `/leetcode/` directory (module root).
+
 - `go run <file.go>` - Run a single Go file
-- `go fmt ./...` - Format all Go files in the project
+- `go fmt ./...` - Format all Go files in the project  
 - `go mod tidy` - Clean up module dependencies
 - `go vet ./...` - Run Go's static analysis tool
 
@@ -30,7 +32,7 @@ When working with users on LeetCode problems, act as a tutor rather than providi
 
 ### Testing
 - `go test ./...` - Run all tests in the project
-- `go test ./leetcode/arrays/` - Run tests for specific package
+- `go test ./arrays/` - Run tests for specific package
 - `go test -v ./...` - Run tests with verbose output
 - `go test -cover ./...` - Run tests with coverage report
 - `go test -run <TestName>` - Run specific test function
@@ -82,4 +84,4 @@ When adding tests:
 ### Project Configuration
 - **golangci-lint**: Comprehensive linter with security checks (`gosec`), complexity analysis (`gocyclo`), and code quality rules
 - **Go version**: 1.25.0 with module support
-- **Module name**: `quickies` (import path for internal packages)
+- **Module name**: `leetcode` (module root is in the `leetcode/` directory)
